@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\build\CMakeFiles\e4c3ad55949d5ac0944c308d23b7d548\CopyShaders.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\build\CMakeFiles\CopyShaders" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{10AEC084-D3AB-348E-AF0C-1C005F5C7889}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
