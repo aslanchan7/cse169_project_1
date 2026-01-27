@@ -29,3 +29,7 @@ void Skeleton::Update() {
 void Skeleton::Draw(const glm::mat4& viewProjMtx, GLuint shader) {
 	root->Draw(viewProjMtx, shader);
 }
+
+glm::mat4 Skeleton::GetWorldMatrix(int joint) {
+	
+}
