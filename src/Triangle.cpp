@@ -9,7 +9,11 @@ Triangle::Triangle(std::vector<glm::vec3>& vertices, std::vector<glm::vec3> norm
     model = glm::mat4(1.0f);
 
     // The color of the cube. Try setting it to something else!
-    color = glm::vec3(1.0f, 0.95f, 0.1f);
+    //color = glm::vec3(1.0f, 0.95f, 0.1f);
+    color = glm::vec3(1.0f, 1.0f, 1.0f);
+
+    lightColor = glm::vec3(1.0f, 0.0f, 0.0f);
+	lightColor2 = glm::vec3(0.0f, 0.0f, 1.0f);
 
     // Specify vertex positions
     positions = vertices;
@@ -69,6 +73,8 @@ void Triangle::Draw(const glm::mat4& viewProjMtx, GLuint shader) {
     glUniformMatrix4fv(glGetUniformLocation(shader, "viewProj"), 1, false, (float*)&viewProjMtx);
     glUniformMatrix4fv(glGetUniformLocation(shader, "model"), 1, GL_FALSE, (float*)&model);
     glUniform3fv(glGetUniformLocation(shader, "DiffuseColor"), 1, &color[0]);
+    glUniform3fv(glGetUniformLocation(shader, "LightColor"), 1, &lightColor[0]);
+	glUniform3fv(glGetUniformLocation(shader, "LightColor2"), 1, &lightColor2[0]);
 
     // Bind the VAO
     glBindVertexArray(VAO);

@@ -19,6 +19,8 @@ class Triangle {
 
 		glm::mat4 model;
 		glm::vec3 color;
+		glm::vec3 lightColor;
+		glm::vec3 lightColor2;
 
 		// Triangle Information
 		std::vector<unsigned int> indices;
