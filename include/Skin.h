@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Skeleton.h"
 #include <tuple>
+#include "Triangle.h"
 
 class Skin {
 public:
@@ -27,4 +28,6 @@ private:
 
     std::vector<glm::vec3> newPositions;
     std::vector<glm::vec3> newNormals; 
+
+    std::vector<Triangle*> triangles;
 };

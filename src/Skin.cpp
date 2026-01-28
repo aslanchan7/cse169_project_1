@@ -27,37 +27,34 @@ void Skin::Update() {
         newPositions[i] = newPos;
         newNormals[i] = glm::normalize(newNorm);
     }
+
+    triangles = std::vector<Triangle*>(triangleCount);
+    for (int i = 0; i < triangleCount; i++)
+    {
+        std::vector<glm::vec3> positions = {
+            newPositions[triangleIndices[i][0]],
+            newPositions[triangleIndices[i][1]],
+            newPositions[triangleIndices[i][2]]
+        };
+
+        std::vector<glm::vec3> normals = {
+            newNormals[triangleIndices[i][0]],
+            newNormals[triangleIndices[i][1]],
+            newNormals[triangleIndices[i][2]]
+        };
+
+        Triangle* triangle = new Triangle(positions, normals);
+        triangles[i] = triangle;
+    }
 }
 
 void Skin::Draw(const glm::mat4& viewProjMtx, GLuint shader) {
-    // Draw triangles using transformed positions & normals
-
-    glMatrixMode(GL_PROJECTION);
-    glLoadMatrixf(&viewProjMtx[0][0]);
-
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    // Uses GL_TRIANGLE instead of triangle class
-    glBegin(GL_TRIANGLES);
-
-    for (int i = 0; i < triangleCount; i++) {
-        int v0 = triangleIndices[i].x;
-        int v1 = triangleIndices[i].y;
-        int v2 = triangleIndices[i].z;
-        //Vertex 0
-        glNormal3fv(&newNormals[v0][0]);
-        glVertex3fv(&newPositions[v0][0]);
-
-        //Vertex 1 
-        glNormal3fv(&newNormals[v1][0]);
-        glVertex3fv(&newPositions[v1][0]);
-
-        //Vertex 2
-        glNormal3fv(&newNormals[v2][0]);
-        glVertex3fv(&newPositions[v2][0]);
+    for (int i = 0; i < triangles.size(); i++)
+    {
+        triangles[i]->Draw(viewProjMtx, shader);
+        delete triangles[i];
     }
 
-    glEnd();
 }
 
 bool Skin::Load(const char* file) {
