@@ -79,7 +79,17 @@ int main(int argc, char* argv[]) {
     // Initialize the shader program; exit if initialization fails.
     if (!Window::initializeProgram()) exit(EXIT_FAILURE);
     // Initialize objects/pointers for rendering; exit if initialization fails.
-    if (!Window::initializeObjects(argv[1])) exit(EXIT_FAILURE);
+    if (argc == 2) {
+		std::cout << "HELLO WORLD" << std::endl;
+        if (!Window::initializeObjects(argv[1], nullptr)) exit(EXIT_FAILURE);
+	}
+	else if (argc ==3) {
+		if (!Window::initializeObjects(argv[1], argv[2])) exit(EXIT_FAILURE);
+    }
+    else {
+		std::cout << "Usage: ./program <skeleton file> <skin file>" << std::endl;
+		exit(EXIT_FAILURE);
+    }
 
     // Loop while GLFW window should stay open.
     while (!glfwWindowShouldClose(window)) {

@@ -1,4 +1,4 @@
-C:/Users/Aslan/Classes/2025-2026/Winter/CSE_169/project_1/build/CMakeFiles/menv.dir
-C:/Users/Aslan/Classes/2025-2026/Winter/CSE_169/project_1/build/CMakeFiles/CopyShaders.dir
-C:/Users/Aslan/Classes/2025-2026/Winter/CSE_169/project_1/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Aslan/Classes/2025-2026/Winter/CSE_169/project_1/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Aslan Chan/Classes/2025-2026/CSE_169_project_1/cse169_project_1/build/CMakeFiles/menv.dir
+C:/Users/Aslan Chan/Classes/2025-2026/CSE_169_project_1/cse169_project_1/build/CMakeFiles/CopyShaders.dir
+C:/Users/Aslan Chan/Classes/2025-2026/CSE_169_project_1/cse169_project_1/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Aslan Chan/Classes/2025-2026/CSE_169_project_1/cse169_project_1/build/CMakeFiles/ZERO_CHECK.dir

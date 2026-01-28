@@ -40,14 +40,22 @@ bool Window::initializeProgram() {
     return true;
 }
 
-bool Window::initializeObjects(const char* filename) {
+bool Window::initializeObjects(const char* skelFile, const char* skinFile) {
     // Load skeleton
     skel = new Skeleton();
     skin = new Skin();
 
-	const char* skinFileName = "C:/Users/Aslan/Classes/2025-2026/Winter/CSE_169/project_1/skins/tube.skin";
-    skel->Load("C:/Users/Aslan Chan/Classes/2025-2026/CSE_169_project_1/cse169_project_1/models/wasp.skel");
-    skin->Load("C:/Users/Aslan Chan/Classes/2025-2026/CSE_169_project_1/cse169_project_1/models/wasp.skin");
+	//const char* skinFileName = "C:/Users/Aslan/Classes/2025-2026/Winter/CSE_169/project_1/skins/tube.skin";
+    std::string skelFilePath = std::string("C:/Users/Aslan Chan/Classes/2025-2026/CSE_169_project_1/cse169_project_1/models/") + skelFile;
+    skel->Load(skelFilePath.c_str());
+
+    if (skinFile != nullptr) {
+	    std::string skinFilePath = std::string("C:/Users/Aslan Chan/Classes/2025-2026/CSE_169_project_1/cse169_project_1/models/") + skinFile;
+        skin->Load(skinFilePath.c_str());
+    }
+    else {
+        skin = nullptr;
+    }
 
     /*if (filename != "") {
         skel->Load(filename);
@@ -62,7 +70,10 @@ bool Window::initializeObjects(const char* filename) {
 void Window::cleanUp() {
     // Deallcoate the objects.
     delete skel;
-    delete skin;
+
+    if (skin != nullptr) {
+        delete skin;
+    }
 
     // Delete the shader program.
     glDeleteProgram(shaderProgram);
@@ -127,7 +138,10 @@ void Window::idleCallback() {
     Cam->Update();
 
     skel->Update();
-	skin->Update();
+
+    if (skin != nullptr) {
+	    skin->Update();
+    }
 }
 
 void Window::displayCallback(GLFWwindow* window) {
@@ -135,8 +149,12 @@ void Window::displayCallback(GLFWwindow* window) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // Render the object.
-    //skel->Draw(Cam->GetViewProjectMtx(), Window::shaderProgram);
-	skin->Draw(Cam->GetViewProjectMtx(), Window::shaderProgram);
+    if (skin != nullptr) {
+	    skin->Draw(Cam->GetViewProjectMtx(), Window::shaderProgram);
+    }
+    else {
+        skel->Draw(Cam->GetViewProjectMtx(), Window::shaderProgram);
+    }
 
     renderImGui(window);
 

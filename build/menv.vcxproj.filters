@@ -1,120 +1,138 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\main.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\Camera.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\Cube.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\Cube.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\Shader.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\Tokenizer.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\Tokenizer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\Window.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\Skeleton.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\Skeleton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\Joint.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\Joint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\DOF.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\DOF.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\imgui\imgui.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\Skin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\imgui\imgui_demo.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\Vertex.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\imgui\imgui_draw.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\Triangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\imgui\imgui_tables.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\imgui\imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\imgui\imgui_widgets.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\imgui\imgui_demo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\imgui\imgui_impl_glfw.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\imgui\imgui_draw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\src\imgui\imgui_impl_opengl3.cpp">
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\imgui\imgui_tables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\imgui\imgui_widgets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\imgui\imgui_impl_glfw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\src\imgui\imgui_impl_opengl3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\core.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\Camera.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\Cube.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\Cube.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\Shader.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\Tokenizer.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\Tokenizer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\Window.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\Skeleton.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\Skeleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\Joint.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\Joint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\DOF.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\DOF.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\imgui\imconfig.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\Skin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\imgui\imgui.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\Vertex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\imgui\imgui_internal.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\Triangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\imgui\imstb_rectpack.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\imgui\imconfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\imgui\imstb_textedit.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\imgui\imgui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\imgui\imstb_truetype.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\imgui\imgui_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\imgui\imgui_impl_glfw.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\imgui\imstb_rectpack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\imgui\imgui_impl_opengl3.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\imgui\imstb_textedit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\include\imgui\imgui_impl_opengl3_loader.h">
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\imgui\imstb_truetype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\imgui\imgui_impl_glfw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\imgui\imgui_impl_opengl3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\include\imgui\imgui_impl_opengl3_loader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Aslan\Classes\2025-2026\Winter\CSE_169\project_1\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Aslan Chan\Classes\2025-2026\CSE_169_project_1\cse169_project_1\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{B2671347-5F74-3DAF-8E83-704046CC75D5}</UniqueIdentifier>
+      <UniqueIdentifier>{744E1463-09EE-31BD-94D2-4DB20C7954CC}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{1B660DC0-80F5-328F-B788-90182D43AAA3}</UniqueIdentifier>
+      <UniqueIdentifier>{D23802A8-50C8-37B1-87BB-6B31B3264FC4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
