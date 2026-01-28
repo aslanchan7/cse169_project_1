@@ -14,6 +14,7 @@ std::vector<Joint*> Window::joints;
 // Objects to render
 //Cube* Window::cube;
 Skeleton* Window::skel;
+Skin* Window::skin;
 
 // Camera Properties
 Camera* Cam;
@@ -42,13 +43,18 @@ bool Window::initializeProgram() {
 bool Window::initializeObjects(const char* filename) {
     // Load skeleton
     skel = new Skeleton();
+    skin = new Skin();
 
-    if (filename != "") {
+	const char* skinFileName = "C:/Users/Aslan/Classes/2025-2026/Winter/CSE_169/project_1/skins/tube.skin";
+    skel->Load("C:/Users/Aslan Chan/Classes/2025-2026/CSE_169_project_1/cse169_project_1/models/wasp.skel");
+    skin->Load("C:/Users/Aslan Chan/Classes/2025-2026/CSE_169_project_1/cse169_project_1/models/wasp.skin");
+
+    /*if (filename != "") {
         skel->Load(filename);
+        skin->Load(skinFileName);
     }
     else {
-        skel->Load("C:/Users/Aslan/Classes/2025-2026/Winter/CSE_169/project_1/skeletons/test.skel");
-    }
+    }*/
 
     return true;
 }
@@ -56,6 +62,7 @@ bool Window::initializeObjects(const char* filename) {
 void Window::cleanUp() {
     // Deallcoate the objects.
     delete skel;
+    delete skin;
 
     // Delete the shader program.
     glDeleteProgram(shaderProgram);
@@ -120,6 +127,7 @@ void Window::idleCallback() {
     Cam->Update();
 
     skel->Update();
+	skin->Update();
 }
 
 void Window::displayCallback(GLFWwindow* window) {
@@ -127,7 +135,8 @@ void Window::displayCallback(GLFWwindow* window) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // Render the object.
-    skel->Draw(Cam->GetViewProjectMtx(), Window::shaderProgram);
+    //skel->Draw(Cam->GetViewProjectMtx(), Window::shaderProgram);
+	skin->Draw(Cam->GetViewProjectMtx(), Window::shaderProgram);
 
     renderImGui(window);
 

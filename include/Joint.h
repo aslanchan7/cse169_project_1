@@ -18,10 +18,10 @@ class Joint {
 		void Draw(const glm::mat4& viewProjMtx, GLuint shader);
 		std::vector<DOF> dof;
 		std::string name;
+		glm::mat4 worldMat;
 
 	private:
 		glm::mat4 localMat;
-		glm::mat4 worldMat;
 		glm::vec3 jointOffset;
 		glm::vec3 boxmin;
 		glm::vec3 boxmax;

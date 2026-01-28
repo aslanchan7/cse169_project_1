@@ -6,6 +6,7 @@
 #include "core.h"
 #include "Skeleton.h"
 #include "Joint.h"
+#include "Skin.h"
 
 class Window {
 public:
@@ -17,6 +18,7 @@ public:
     // Objects to render
     static Cube* cube;
     static Skeleton* skel;
+    static Skin* skin;
 
     // Shader Program
     static GLuint shaderProgram;

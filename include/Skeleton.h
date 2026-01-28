@@ -12,7 +12,7 @@ class Skeleton {
 		void Update();
 		void Draw(const glm::mat4& viewProjMtx, GLuint shader);
 
-		glm::mat4 GetWorldMatrix(int joint);
+		static glm::mat4 GetWorldMatrix(int joint);
 
 	private:
 		Joint* root;	

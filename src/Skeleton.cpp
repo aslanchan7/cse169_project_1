@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Skeleton.h"
 #include "Tokenizer.h"
+#include "Window.h"
 
 Skeleton::Skeleton() {
 	root = NULL;
@@ -31,5 +32,5 @@ void Skeleton::Draw(const glm::mat4& viewProjMtx, GLuint shader) {
 }
 
 glm::mat4 Skeleton::GetWorldMatrix(int joint) {
-	
+	return Window::joints[joint]->worldMat;
 }

@@ -14,6 +14,9 @@ set(
     src/Skeleton.cpp
     src/Joint.cpp
     src/DOF.cpp
+    src/Skin.cpp
+    src/Vertex.cpp
+    src/Triangle.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_demo.cpp
     src/imgui/imgui_draw.cpp
@@ -35,6 +38,9 @@ set(
     include/Skeleton.h
     include/Joint.h
     include/DOF.h
+    include/Skin.h
+    include/Vertex.h
+    include/Triangle.h
     include/imgui/imconfig.h
     include/imgui/imgui.h
     include/imgui/imgui_internal.h

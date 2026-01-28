@@ -1,10 +1,14 @@
 #pragma once
 
 #include <vector>
+#include "core.h"
+#include <tuple>
 
 class Vertex {
-	private:
-		std::vector<float> position;
-		std::vector<float> normal;
+	public:
+		Vertex();
+
+		glm::vec3 position;
+		glm::vec3 normal;
 		std::vector<std::tuple<int, float>> skinWeight;
 };
