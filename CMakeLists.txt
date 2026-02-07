@@ -17,6 +17,7 @@ set(
     src/Skin.cpp
     src/Vertex.cpp
     src/Triangle.cpp
+    src/Mesh.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_demo.cpp
     src/imgui/imgui_draw.cpp
@@ -41,6 +42,7 @@ set(
     include/Skin.h
     include/Vertex.h
     include/Triangle.h
+    include/Mesh.h
     include/imgui/imconfig.h
     include/imgui/imgui.h
     include/imgui/imgui_internal.h

@@ -28,7 +28,6 @@ void Skin::Update() {
         newNormals[i] = glm::normalize(newNorm);
     }
 
-    triangles = std::vector<Triangle*>(triangleCount);
     for (int i = 0; i < triangleCount; i++)
     {
         std::vector<glm::vec3> positions = {
@@ -42,19 +41,13 @@ void Skin::Update() {
             newNormals[triangleIndices[i][1]],
             newNormals[triangleIndices[i][2]]
         };
-
-        Triangle* triangle = new Triangle(positions, normals);
-        triangles[i] = triangle;
     }
+
+	mesh->UpdateVertices(newPositions, newNormals);
 }
 
 void Skin::Draw(const glm::mat4& viewProjMtx, GLuint shader) {
-    for (int i = 0; i < triangles.size(); i++)
-    {
-        triangles[i]->Draw(viewProjMtx, shader);
-        delete triangles[i];
-    }
-
+    mesh->Draw(viewProjMtx, shader);
 }
 
 bool Skin::Load(const char* file) {
@@ -155,5 +148,18 @@ bool Skin::Load(const char* file) {
     newNormals.resize(vertexCount);
 
     tokenizer.Close();
+
+    for (int i = 0; i < vertexCount; i++)
+    {
+        newPositions[i] = positions[i];
+		newNormals[i] = normals[i];
+    }
+
+    mesh = new Mesh(newPositions, newNormals, triangleIndices);
+
     return true;
+}
+
+Skin::~Skin() {
+	delete mesh;
 }

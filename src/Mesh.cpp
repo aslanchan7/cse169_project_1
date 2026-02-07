@@ -8,13 +8,13 @@ Mesh::Mesh(const std::vector<glm::vec3>& positions, const std::vector<glm::vec3>
 	color = glm::vec3(1.0f, 1.0f, 1.0f);
 
 	// Set light colors
-	lightColor = glm::vec3(1.0f, 0.0f, 0.0f);
+	lightColor1 = glm::vec3(1.0f, 0.0f, 0.0f);
 	lightColor2 = glm::vec3(0.0f, 0.0f, 1.0f);
 	
 	indexCount = triangleIndices.size() * 3;
 	std::vector<unsigned int> indices;
 	indices.reserve(indexCount);
-	for (glm::ivec3& triangle : indices) {
+	for (glm::ivec3 triangle : triangleIndices) {
 		indices.push_back(triangle.x);
 		indices.push_back(triangle.y);
 		indices.push_back(triangle.z);
@@ -58,11 +58,20 @@ Mesh::~Mesh() {
     glDeleteVertexArrays(1, &VAO);
 }
 
-Mesh::UpdateVertices(const std::vector<glm::vec3>& positions, const std::vector<glm::vec3>& normals) {
+void Mesh::UpdateVertices(const std::vector<glm::vec3>& positions, const std::vector<glm::vec3>& normals) {
+	glBindBuffer(GL_ARRAY_BUFFER, VBO_positions);
+	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(glm::vec3) * positions.size(), positions.data());
 
+	glBindBuffer(GL_ARRAY_BUFFER, VBO_normals);
+	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(glm::vec3) * normals.size(), normals.data());
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-Mesh::Draw(const glm::mat4& viewProjMtx, GLuint shader) {
+void Mesh::Draw(const glm::mat4& viewProjMtx, GLuint shader) {
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+
     // actiavte the shader program
     glUseProgram(shader);
 
@@ -70,7 +79,7 @@ Mesh::Draw(const glm::mat4& viewProjMtx, GLuint shader) {
     glUniformMatrix4fv(glGetUniformLocation(shader, "viewProj"), 1, false, (float*)&viewProjMtx);
     glUniformMatrix4fv(glGetUniformLocation(shader, "model"), 1, GL_FALSE, (float*)&model);
     glUniform3fv(glGetUniformLocation(shader, "DiffuseColor"), 1, &color[0]);
-    glUniform3fv(glGetUniformLocation(shader, "LightColor"), 1, &lightColor[0]);
+    glUniform3fv(glGetUniformLocation(shader, "LightColor"), 1, &lightColor1[0]);
     glUniform3fv(glGetUniformLocation(shader, "LightColor2"), 1, &lightColor2[0]);
 
     // Bind the VAO
@@ -82,4 +91,6 @@ Mesh::Draw(const glm::mat4& viewProjMtx, GLuint shader) {
     // Unbind the VAO and shader program
     glBindVertexArray(0);
     glUseProgram(0);
+
+	glDisable(GL_CULL_FACE);
 }

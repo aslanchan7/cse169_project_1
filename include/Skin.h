@@ -6,9 +6,11 @@
 #include "Skeleton.h"
 #include <tuple>
 #include "Triangle.h"
+#include "Mesh.h"
 
 class Skin {
 public:
+    ~Skin();
     void Update();
     bool Load(const char* file);
     void Draw(const glm::mat4& viewProjMtx, GLuint shader);
@@ -29,5 +31,6 @@ private:
     std::vector<glm::vec3> newPositions;
     std::vector<glm::vec3> newNormals; 
 
-    std::vector<Triangle*> triangles;
+    //std::vector<Triangle*> triangles;
+    Mesh* mesh;
 };
