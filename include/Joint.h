@@ -16,7 +16,7 @@ class Joint {
 		bool Load(Tokenizer &t);
 		void AddChild(Joint*);
 		void Draw(const glm::mat4& viewProjMtx, GLuint shader);
-		std::vector<DOF> dof;
+		std::vector<DOF*> dof;
 		std::string name;
 		glm::mat4 worldMat;
 

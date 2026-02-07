@@ -3,8 +3,8 @@
 
 DOF::DOF() {
 	value = 0.;
-	min = -100000.;
-	max = 100000.;
+	min = -3.0f;
+	max = 3.0f;
 }
 
 void DOF::SetValue(float val) {

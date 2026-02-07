@@ -4,13 +4,16 @@
 
 Joint::Joint() {
 	// Initialize initial values
-	dof = std::vector<DOF>(3);
+	dof = std::vector<DOF*>(3);
 	jointOffset = glm::vec3(0.,0.,0.);
 	boxmin = glm::vec3(-0.1, -0.1, -0.1);
 	boxmax = glm::vec3(0.1, 0.1, 0.1);
-	dof[0].SetMinMax(-100000., 100000.);
-	dof[1].SetMinMax(-100000., 100000.);
-	dof[2].SetMinMax(-100000., 100000.);
+	//dof[0].SetMinMax(-3.0f, 3.0f);
+	//dof[1].SetMinMax(-3.0f, 3.0f);
+	//dof[2].SetMinMax(-3.0f, 3.0f);
+	dof[0] = new DOF();
+	dof[1] = new DOF();
+	dof[2] = new DOF();
 	pose = glm::vec3(0.,0.,0.);
 	children = std::vector<Joint*>();
 	parent = nullptr;
@@ -23,6 +26,9 @@ Joint::Joint() {
 
 Joint::~Joint() {
 	delete cube;
+	delete dof[0];
+	delete dof[1];
+	delete dof[2];
 }
 
 bool Joint::Load(Tokenizer &token) {
@@ -54,19 +60,19 @@ bool Joint::Load(Tokenizer &token) {
 		} else if(strcmp(temp, "rotxlimit") == 0) {
 			float min = token.GetFloat();
 			float max = token.GetFloat();
-			dof[0].SetMinMax(min, max);
+			dof[0]->SetMinMax(min, max);
 		} else if(strcmp(temp, "rotylimit") == 0) {
 			float min = token.GetFloat();
 			float max = token.GetFloat();
-			dof[1].SetMinMax(min, max);
+			dof[1]->SetMinMax(min, max);
 		} else if(strcmp(temp, "rotzlimit") == 0) {
 			float min = token.GetFloat();
 			float max = token.GetFloat();
-			dof[2].SetMinMax(min, max);
+			dof[2]->SetMinMax(min, max);
 		} else if(strcmp(temp, "pose") == 0) {
-			dof[0].SetValue(token.GetFloat());
-			dof[1].SetValue(token.GetFloat());
-			dof[2].SetValue(token.GetFloat());
+			dof[0]->SetValue(token.GetFloat());
+			dof[1]->SetValue(token.GetFloat());
+			dof[2]->SetValue(token.GetFloat());
 		} else if(strcmp(temp, "balljoint") == 0) {
 			Joint* newJoint = new Joint();
 			AddChild(newJoint);
@@ -92,22 +98,22 @@ void Joint::Update() {
 	translateMat[3] = glm::vec4(jointOffset, 1.0f);
 
 	glm::mat4 xRotMat(1.0f);
-	xRotMat[1][1] = cos(dof[0].GetValue());
-	xRotMat[2][1] = -sin(dof[0].GetValue());
-	xRotMat[1][2] = sin(dof[0].GetValue());
-	xRotMat[2][2] = cos(dof[0].GetValue());
+	xRotMat[1][1] = cos(dof[0]->GetValue());
+	xRotMat[2][1] = -sin(dof[0]->GetValue());
+	xRotMat[1][2] = sin(dof[0]->GetValue());
+	xRotMat[2][2] = cos(dof[0]->GetValue());
 
 	glm::mat4 yRotMat(1.0f);
-	yRotMat[0][0] = cos(dof[1].GetValue());
-	yRotMat[2][0] = sin(dof[1].GetValue());
-	yRotMat[0][2] = -sin(dof[1].GetValue());
-	yRotMat[2][2] = cos(dof[1].GetValue());
+	yRotMat[0][0] = cos(dof[1]->GetValue());
+	yRotMat[2][0] = sin(dof[1]->GetValue());
+	yRotMat[0][2] = -sin(dof[1]->GetValue());
+	yRotMat[2][2] = cos(dof[1]->GetValue());
 
 	glm::mat4 zRotMat(1.0f);
-	zRotMat[0][0] = cos(dof[2].GetValue());
-	zRotMat[1][0] = -sin(dof[2].GetValue());
-	zRotMat[0][1] = sin(dof[2].GetValue());
-	zRotMat[1][1] = cos(dof[2].GetValue());
+	zRotMat[0][0] = cos(dof[2]->GetValue());
+	zRotMat[1][0] = -sin(dof[2]->GetValue());
+	zRotMat[0][1] = sin(dof[2]->GetValue());
+	zRotMat[1][1] = cos(dof[2]->GetValue());
 
 	localMat = translateMat * zRotMat * yRotMat * xRotMat;
 

@@ -87,8 +87,11 @@ int main(int argc, char* argv[]) {
 		if (!Window::initializeObjects(argv[1], argv[2])) exit(EXIT_FAILURE);
     }
     else {
-		std::cout << "Usage: ./program <skeleton file> <skin file>" << std::endl;
-		exit(EXIT_FAILURE);
+        if (!Window::initializeObjects("wasp.skel", "wasp.skin")) exit(EXIT_FAILURE);
+
+        // TODO: Uncomment the following for submission
+		//std::cout << "Usage: ./program <skeleton file> <skin file>" << std::endl;
+		//exit(EXIT_FAILURE);
     }
 
     // Loop while GLFW window should stay open.

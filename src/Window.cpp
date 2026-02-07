@@ -182,30 +182,32 @@ void Window::renderImGui(GLFWwindow* window) {
 
         for (int i = 0; i < joints.size(); i++)
         {
-            bool canMoveX = (joints[i]->dof[0].min > -100000. || joints[i]->dof[0].max < 100000.) 
-                                && (joints[i]->dof[0].max - joints[i]->dof[0].min != 0);
-            bool canMoveY = (joints[i]->dof[1].min > -100000. || joints[i]->dof[1].max < 100000.) 
-                                && (joints[i]->dof[1].max - joints[i]->dof[1].min != 0);
-            bool canMoveZ = (joints[i]->dof[2].min > -100000. || joints[i]->dof[2].max < 100000.) 
-                                && (joints[i]->dof[2].max - joints[i]->dof[2].min != 0);
+            /*
+            bool canMoveX = (joints[i]->dof[0]->min > -100000. || joints[i]->dof[0]->max < 100000.)
+                                && (joints[i]->dof[0]->max - joints[i]->dof[0]->min != 0);
+            bool canMoveY = (joints[i]->dof[1]->min > -100000. || joints[i]->dof[1]->max < 100000.)
+                                && (joints[i]->dof[1]->max - joints[i]->dof[1]->min != 0);
+            bool canMoveZ = (joints[i]->dof[2]->min > -100000. || joints[i]->dof[2]->max < 100000.)
+                                && (joints[i]->dof[2]->max - joints[i]->dof[2]->min != 0);
+            */
 
             if(ImGui::CollapsingHeader(joints[i]->name.c_str())) {
                 //if(canMoveX) {
                     std::string xLabel = "x##";
                     xLabel.append(std::to_string(i));
-                    ImGui::SliderFloat(xLabel.c_str(), &joints[i]->dof[0].value, joints[i]->dof[0].min, joints[i]->dof[0].max);
+                    ImGui::SliderFloat(xLabel.c_str(), &joints[i]->dof[0]->value, joints[i]->dof[0]->min, joints[i]->dof[0]->max);
                 //}
 
                 //if(canMoveY) {
                     std::string yLabel = "y##";
                     yLabel.append(std::to_string(i));
-                    ImGui::SliderFloat(yLabel.c_str(), &joints[i]->dof[1].value, joints[i]->dof[1].min, joints[i]->dof[1].max);
+                    ImGui::SliderFloat(yLabel.c_str(), &joints[i]->dof[1]->value, joints[i]->dof[1]->min, joints[i]->dof[1]->max);
                 //}
 
                 //if(canMoveZ) {
                     std::string zLabel = "z##";
                     zLabel.append(std::to_string(i));
-                    ImGui::SliderFloat(zLabel.c_str(), &joints[i]->dof[2].value, joints[i]->dof[2].min, joints[i]->dof[2].max);
+                    ImGui::SliderFloat(zLabel.c_str(), &joints[i]->dof[2]->value, joints[i]->dof[2]->min, joints[i]->dof[2]->max);
                 //}
             }
             
