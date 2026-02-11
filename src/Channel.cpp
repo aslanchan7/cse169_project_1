@@ -79,13 +79,14 @@ bool Channel::Load(Tokenizer* tokenizer) {
 	return true;
 }
 
-float Channel::Evaluate(float time, int lastKeyframeIndex) {
+float Channel::Evaluate(float time) {
 	if (keyframeCount == 0) {
 		std::cout << "No keyframes in channel" << std::endl;
 		return 0.0f;
 	}
 	else if (keyframeCount == 1) {
 		return keyframes[0]->value;
+		//return 100.0f;
 	}
 
 	if (time < keyframes[0]->time) {
@@ -102,7 +103,7 @@ float Channel::Evaluate(float time, int lastKeyframeIndex) {
 			if (x < 0) {
 				x += keyframes[keyframeCount - 1]->time - keyframes[0]->time;
 			}
-			return Evaluate(x + keyframes[0]->time, lastKeyframeIndex);
+			return Evaluate(x + keyframes[0]->time);
 		}
 		else if (strcmp(extrapolateIn, "cycle_offset") == 0) {
 			float x = fmod(time - keyframes[0]->time, keyframes[keyframeCount - 1]->time - keyframes[0]->time);
@@ -110,7 +111,7 @@ float Channel::Evaluate(float time, int lastKeyframeIndex) {
 				x += keyframes[keyframeCount - 1]->time - keyframes[0]->time;
 			}
 			int cycleCount = floor((keyframes[0]->time - time) / (keyframes[keyframeCount - 1]->time - keyframes[0]->time));
-			return Evaluate(x + keyframes[0]->time, lastKeyframeIndex) + cycleCount * (keyframes[keyframeCount - 1]->value - keyframes[0]->value);
+			return Evaluate(x + keyframes[0]->time) + cycleCount * (keyframes[keyframeCount - 1]->value - keyframes[0]->value);
 		}
 	}
 	else if (time > keyframes[keyframeCount - 1]->time) {
@@ -127,7 +128,7 @@ float Channel::Evaluate(float time, int lastKeyframeIndex) {
 			if (x < 0) {
 				x += keyframes[keyframeCount - 1]->time - keyframes[0]->time;
 			}
-			return Evaluate(x + keyframes[0]->time, lastKeyframeIndex);
+			return Evaluate(x + keyframes[0]->time);
 		}
 		else if (strcmp(extrapolateOut, "cycle_offset") == 0) {
 			float x = fmod(time - keyframes[0]->time, keyframes[keyframeCount - 1]->time - keyframes[0]->time);
@@ -135,21 +136,38 @@ float Channel::Evaluate(float time, int lastKeyframeIndex) {
 				x += keyframes[keyframeCount - 1]->time - keyframes[0]->time;
 			}
 			int cycleCount = floor((time - keyframes[keyframeCount - 1]->time) / (keyframes[keyframeCount - 1]->time - keyframes[0]->time)) + 1;
-			return Evaluate(x + keyframes[0]->time, lastKeyframeIndex) + cycleCount * (keyframes[keyframeCount - 1]->value - keyframes[0]->value);
+			return Evaluate(x + keyframes[0]->time) + cycleCount * (keyframes[keyframeCount - 1]->value - keyframes[0]->value);
 		}
 	}
 	else {
-		for (int i = 0; i < keyframeCount - 1; i++)
+		int low = 0;
+		int high = keyframeCount - 2; // last valid segment start
+
+		while (low <= high)
 		{
-			if (time >= keyframes[i]->time && time < keyframes[i + 1]->time) {
-				Keyframe* kf = keyframes[i];
-				float u = (time - kf->time) * kf->denominator;
-				std::cout << "i: " << i << std::endl;
-				std::cout << "time: " << time << std::endl;
-				std::cout << "value: " << (kf->D + u * (kf->C + u * (kf->B + u * (kf->A)))) << std::endl;
+			int mid = (low + high) / 2;
+
+			float t0 = keyframes[mid]->time;
+			float t1 = keyframes[mid + 1]->time;
+
+			if (time < t0)
+			{
+				high = mid - 1;
+			}
+			else if (time >= t1)
+			{
+				low = mid + 1;
+			}
+			else
+			{
+				// Found segment
+				Keyframe* kf = keyframes[mid];
+				float u = (time - t0) * kf->denominator;
+
 				return kf->D + u * (kf->C + u * (kf->B + u * (kf->A)));
 			}
 		}
+
 	}
 }
 

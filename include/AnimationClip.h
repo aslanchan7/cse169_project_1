@@ -11,7 +11,7 @@ class AnimationClip {
 		~AnimationClip();
 
 		bool Load(const char* fileName);
-		void Evaluate(float time, std::vector<Joint*> joints, std::vector<int> channelLastKeyframeIdx);
+		void Evaluate(float time, std::vector<Joint*> joints);
 
 		float timeStart;
 		float timeEnd;

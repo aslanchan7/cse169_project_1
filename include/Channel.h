@@ -10,7 +10,7 @@ class Channel {
 		~Channel();
 		
 		bool Load(Tokenizer* tokenizer);
-		float Evaluate(float time, int lastKeyframeIndex);
+		float Evaluate(float time);
 		void Precompute();
 	
 		std::vector<Keyframe*> keyframes;
