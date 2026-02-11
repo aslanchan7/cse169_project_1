@@ -19,10 +19,10 @@ class Joint {
 		std::vector<DOF*> dof;
 		std::string name;
 		glm::mat4 worldMat;
+		glm::vec3 jointOffset;
 
 	private:
 		glm::mat4 localMat;
-		glm::vec3 jointOffset;
 		glm::vec3 boxmin;
 		glm::vec3 boxmax;
 		glm::vec3 pose;

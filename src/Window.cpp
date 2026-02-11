@@ -16,6 +16,10 @@ std::vector<Joint*> Window::joints;
 Skeleton* Window::skel;
 Skin* Window::skin;
 
+// Animations
+AnimationPlayer* Window::animPlayer;
+AnimationClip* Window::animClip;
+
 // Camera Properties
 Camera* Cam;
 
@@ -40,7 +44,7 @@ bool Window::initializeProgram() {
     return true;
 }
 
-bool Window::initializeObjects(const char* skelFile, const char* skinFile) {
+bool Window::initializeObjects(const char* skelFile, const char* skinFile, const char* animFile) {
     // Load skeleton
     skel = new Skeleton();
     skin = new Skin();
@@ -57,12 +61,15 @@ bool Window::initializeObjects(const char* skelFile, const char* skinFile) {
         skin = nullptr;
     }
 
-    /*if (filename != "") {
-        skel->Load(filename);
-        skin->Load(skinFileName);
-    }
-    else {
-    }*/
+	if (animFile != nullptr) {
+		std::string animFilePath = std::string("C:/Users/Aslan Chan/Classes/2025-2026/CSE_169_project_1/cse169_project_1/models/") + animFile;
+		
+        animClip = new AnimationClip();
+		animClip->Load(animFilePath.c_str());
+		
+        animPlayer = new AnimationPlayer();
+		animPlayer->SetClip(animClip);
+	}
 
     return true;
 }
@@ -74,6 +81,14 @@ void Window::cleanUp() {
     if (skin != nullptr) {
         delete skin;
     }
+
+	if (animClip != nullptr) {
+		delete animClip;
+	}
+
+	if (animPlayer != nullptr) {
+		delete animPlayer;
+	}
 
     // Delete the shader program.
     glDeleteProgram(shaderProgram);
@@ -142,6 +157,11 @@ void Window::idleCallback() {
     if (skin != nullptr) {
 	    skin->Update();
     }
+
+    if (animPlayer != nullptr) {
+        //animPlayer->Update(0.016f);
+        animPlayer->Update(0.0016f);
+    }
 }
 
 void Window::displayCallback(GLFWwindow* window) {
@@ -155,6 +175,10 @@ void Window::displayCallback(GLFWwindow* window) {
     else {
         skel->Draw(Cam->GetViewProjectMtx(), Window::shaderProgram);
     }
+
+	if (animPlayer != nullptr) {
+		animPlayer->Update(0.0f);
+	}
 
     renderImGui(window);
 

@@ -31,6 +31,5 @@ private:
     std::vector<glm::vec3> newPositions;
     std::vector<glm::vec3> newNormals; 
 
-    //std::vector<Triangle*> triangles;
     Mesh* mesh;
 };

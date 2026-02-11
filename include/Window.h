@@ -7,6 +7,8 @@
 #include "Skeleton.h"
 #include "Joint.h"
 #include "Skin.h"
+#include "AnimationPlayer.h"
+#include "AnimationClip.h"
 
 class Window {
 public:
@@ -20,12 +22,16 @@ public:
     static Skeleton* skel;
     static Skin* skin;
 
+	// Animations
+	static AnimationPlayer* animPlayer;
+    static AnimationClip* animClip;
+
     // Shader Program
     static GLuint shaderProgram;
 
     // Act as Constructors and desctructors
     static bool initializeProgram();
-    static bool initializeObjects(const char* skelFile, const char* skinFile);
+    static bool initializeObjects(const char* skelFile, const char* skinFile, const char* animFile);
     static void cleanUp();
 
     // for the Window

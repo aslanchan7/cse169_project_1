@@ -18,6 +18,10 @@ set(
     src/Vertex.cpp
     src/Triangle.cpp
     src/Mesh.cpp
+    src/AnimationPlayer.cpp
+    src/AnimationClip.cpp
+    src/Keyframe.cpp
+    src/Channel.cpp
     src/imgui/imgui.cpp
     src/imgui/imgui_demo.cpp
     src/imgui/imgui_draw.cpp
@@ -43,6 +47,10 @@ set(
     include/Vertex.h
     include/Triangle.h
     include/Mesh.h
+    include/AnimationPlayer.h
+    include/AnimationClip.h
+    include/Keyframe.h
+    include/Channel.h
     include/imgui/imconfig.h
     include/imgui/imgui.h
     include/imgui/imgui_internal.h

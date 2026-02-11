@@ -81,13 +81,16 @@ int main(int argc, char* argv[]) {
     // Initialize objects/pointers for rendering; exit if initialization fails.
     if (argc == 2) {
 		std::cout << "HELLO WORLD" << std::endl;
-        if (!Window::initializeObjects(argv[1], nullptr)) exit(EXIT_FAILURE);
+        if (!Window::initializeObjects(argv[1], nullptr, nullptr)) exit(EXIT_FAILURE);
 	}
 	else if (argc ==3) {
-		if (!Window::initializeObjects(argv[1], argv[2])) exit(EXIT_FAILURE);
+		if (!Window::initializeObjects(argv[1], argv[2], nullptr)) exit(EXIT_FAILURE);
+	}
+    else if (argc == 4) {
+		if (!Window::initializeObjects(argv[1], argv[2], argv[3])) exit(EXIT_FAILURE);
     }
     else {
-        if (!Window::initializeObjects("wasp.skel", "wasp.skin")) exit(EXIT_FAILURE);
+        if (!Window::initializeObjects("wasp.skel", "wasp.skin", "wasp_walk.anim")) exit(EXIT_FAILURE);
 
         // TODO: Uncomment the following for submission
 		//std::cout << "Usage: ./program <skeleton file> <skin file>" << std::endl;
